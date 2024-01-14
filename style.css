@@ -16,7 +16,7 @@ section{
 .container {
    width: 90%;
    max-width: 400px;
-   background-color: #11a0a3;
+   background-color: #475a5a;
    border-radius: 8px;
    overflow: hidden;
 }
@@ -32,11 +32,13 @@ section{
 .display-history {
    opacity: 0.4;
    font-size: 20px;
+   height: 20px;
+   overflow: hidden;
 }
 .temp-result{
    position: absolute;
+   bottom: 0;
    left: 10;
-   bottom: 5;   
    font-size: 20px;
    opacity: 0.3;
 }
@@ -58,12 +60,12 @@ section{
    font-size: 30px;
    cursor: pointer;
 }
-.btn-operation{
+.btn:hover{
+   background-color: #94c4c7;
+}
+.operation, .all-clear, .last-entry-clear, .equal{
    background-color: #f29e4e;
 }
-.btn-operation:hover{
-   background-color: #ec9039;
-}
-.btn:hover{
-   background-color: #0a939e;
+.operation:hover, .all-clear:hover, .last-entry-clear:hover, .equal:hover{
+   background-color: #c57224;
 }
