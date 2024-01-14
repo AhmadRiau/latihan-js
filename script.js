@@ -57,12 +57,39 @@ function mathOperation() {
    if (lastOperation === 'x') {
       result = parseFloat(result) * parseFloat(disNumb2);
    } else if (lastOperation === '+') {
-      result = parseFloat(result) * parseFloat(disNumb2);
+      result = parseFloat(result) + parseFloat(disNumb2);
    } else if (lastOperation === '-') {
-      result = parseFloat(result) * parseFloat(disNumb2);
+      result = parseFloat(result) - parseFloat(disNumb2);
    } else if (lastOperation === '/') {
-      result = parseFloat(result) * parseFloat(disNumb2);
+      result = parseFloat(result) / parseFloat(disNumb2);
    } else if (lastOperation === '%') {
-      result = parseFloat(result) * parseFloat(disNumb2);
+      result = parseFloat(result) % parseFloat(disNumb2);
    }
 }
+
+equal.addEventListener("click", () => {
+   if (!disNumb1 || !disNumb2) return;
+   haveDot = false;
+   mathOperation();
+   clearDisplay();
+   display.innerText = result;;
+   tempResult.innerText = "";
+   disNumb2 = result;
+   disNumb1 = ""
+})
+
+clearAll.addEventListener("click", () => {
+   disNumb1 = "";
+   disNumb2 = "";
+   result = '';
+   lastOperation = '';
+   haveDot = false;
+   display.innerText = "0";
+   disHistory.innerText = "";
+   tempResult.innerText = "0";
+})
+
+clearLast.addEventListener("click", () => {
+   disNumb2 = "";
+   display.innerText = "0";
+})
