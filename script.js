@@ -43,8 +43,6 @@ operations.forEach((operation) => {
    })   
 })
 
-
-
 function clearDisplay(name = ""){   
    disNumb1 += disNumb2 + " " + name + " ";
    disHistory.innerText = disNumb1;
@@ -54,8 +52,8 @@ function clearDisplay(name = ""){
 }
 
 function mathOperation() {
-   if (lastOperation === 'x') {
-      result = parseFloat(result) * parseFloat(disNumb2);
+   if (lastOperation === '*') {      
+      result = parseFloat(disNumb1) * parseFloat(disNumb2);
    } else if (lastOperation === '+') {
       result = parseFloat(result) + parseFloat(disNumb2);
    } else if (lastOperation === '-') {
@@ -93,3 +91,56 @@ clearLast.addEventListener("click", () => {
    disNumb2 = "";
    display.innerText = "0";
 })
+
+window.addEventListener("keydown", (e) => {
+   if (
+      e.key === '0'
+      || e.key === '1'
+      || e.key === '2'
+      || e.key === '3'
+      || e.key === '4'
+      || e.key === '5'
+      || e.key === '6'
+      || e.key === '7'
+      || e.key === '8'
+      || e.key === '9'
+      || e.key === '.'
+   ) {
+      clickButton(e.key);
+   } else if (
+      e.key === '+'
+      || e.key === '-'
+      || e.key === '*'
+      || e.key === '/'
+      || e.key === '%'
+   ) {
+      clickOperations(e.key);
+   } else if (e.key == "Enter" || e.key === "=") {
+      clickEqual();
+   } else if ( e.key == "Backspace") {
+      clearLast.click();
+   } else if (e.key == "Escape") {
+      clearAll.click();
+   }
+})
+
+function clickButton(key) {
+   numbers.forEach((button) => {
+      console.log(button.innerText);
+      if (button.innerText === key) {
+         
+         button.click();
+      }
+   })
+}
+
+function clickOperations(key) {
+   operations.forEach((operation) => {
+     if (operation.innerText === key) {
+       operation.click();
+     }
+   });
+ }
+ function clickEqual() {
+   equal.click();
+ }
